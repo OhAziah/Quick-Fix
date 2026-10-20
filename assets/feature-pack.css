@@ -17,7 +17,7 @@ body[data-theme="light"] .output-box,body.light-theme .output-box{background:#f7
 .notice[hidden]{display:none!important}
 .profile{position:relative}
 .profile-identity{min-width:0}
-.profile-menu{margin-left:auto;display:grid;place-items:center;min-width:34px;height:32px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--faint);font:700 13px/1 inherit;letter-spacing:1px;cursor:pointer}
+.profile-menu{margin-left:auto;display:grid;place-items:center;min-width:34px;height:32px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--faint);font:inherit;font-weight:700;font-size:13px;line-height:1;letter-spacing:1px;cursor:pointer}
 .profile-menu:hover,.profile-menu[aria-expanded="true"]{background:var(--panel2);border-color:var(--border);color:var(--text)}
 .profile-dropdown{position:absolute;right:0;bottom:calc(100% + 8px);z-index:50;width:190px;padding:6px;border:1px solid var(--border);border-radius:12px;background:var(--panel);box-shadow:var(--shadow)}
 .profile-dropdown[hidden]{display:none!important}
