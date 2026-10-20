@@ -114,3 +114,8 @@ quickfix-dashboard/
 - User-configurable tool cards and saved device profiles
 - Unit tests for API routes and Windows action wrappers
 - Optional desktop shell if browser local-network restrictions become a blocker
+
+
+## Planned workbench upgrades
+
+Live monitoring, extended read-only diagnostics, a searchable technician toolkit, support-report exports, and a persistent theme studio are being prepared on a feature branch for review before merging.
