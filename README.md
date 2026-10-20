@@ -1,7 +1,5 @@
 # Quick Fix — IT Workbench
 
-A new dashboard edition of Quick Fix by Charlie Tuttle. It takes the core workflows in the original `quick_fix_v15.py`—system information, health reports, network diagnostics, file-system maintenance, Windows repair and process visibility—and presents them in a modern dashboard.
-
 ## Important: what GitHub Pages can and cannot do
 
 GitHub Pages serves static HTML, CSS and JavaScript. It **cannot run Windows commands on your PC**. This project therefore has two modes:
