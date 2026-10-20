@@ -41,3 +41,7 @@ body[data-theme="light"] .output-box,body.light-theme .output-box{background:#f7
 .command-copy{width:100%}
 @media(max-width:900px){.command-layout{grid-template-columns:1fr}.command-category-panel{padding:10px}.command-category-heading{padding-bottom:7px}#commandCategories{display:flex;flex-wrap:wrap}.command-category{width:auto}}
 @media(max-width:600px){.command-results{grid-template-columns:1fr}.profile-dropdown{bottom:auto;top:calc(100% + 8px)}}
+
+/* Keep refresh controls aligned with the single System overview monitor. */
+.overview-controls{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+@media(max-width:520px){.overview-controls{align-items:flex-end;flex-direction:column;gap:6px}}
