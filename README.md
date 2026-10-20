@@ -114,3 +114,14 @@ quickfix-dashboard/
 - User-configurable tool cards and saved device profiles
 - Unit tests for API routes and Windows action wrappers
 - Optional desktop shell if browser local-network restrictions become a blocker
+
+
+## Expanded workbench features
+
+- Live monitoring refreshes CPU, memory and primary-drive readings at a configurable 5, 10, 30 or 60 second interval while the dashboard remains open.
+- Theme studio presets: Midnight, Ocean, Violet, Emerald, Graphite and Light, plus a custom accent colour. Theme preferences are stored in the current browser only.
+- Read-only Windows diagnostics for recent critical/error events from System and Application logs, selected common service status, recent installed hotfixes and basic DNS/TCP reachability.
+- Searchable technician toolkit with network, Windows, app and hardware troubleshooting guides.
+- JSON support-report export from the Activity & reports page. Review the file for device names, IP addresses, process names and event messages before sharing it.
+
+The extended diagnostics live in `agent/extended_diagnostics.py`, beside `quickfix_agent.py`; keep both files in the same `agent` folder when downloading or copying the agent.

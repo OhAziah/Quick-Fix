@@ -10,6 +10,11 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse
 
 try:
+    from extended_diagnostics import events as diagnostic_events, services as diagnostic_services, updates as diagnostic_updates, connectivity as diagnostic_connectivity
+except ImportError:
+    diagnostic_events = diagnostic_services = diagnostic_updates = diagnostic_connectivity = None
+
+try:
     import psutil
 except ImportError:
     psutil = None
@@ -169,6 +174,10 @@ class Handler(BaseHTTPRequestHandler):
         elif path=="/api/diagnostics/system": self._json(system_info())
         elif path=="/api/diagnostics/network": self._json(network_info())
         elif path=="/api/processes": self._json(processes())
+        elif path=="/api/diagnostics/events" and diagnostic_events: self._json(diagnostic_events())
+        elif path=="/api/diagnostics/services" and diagnostic_services: self._json(diagnostic_services())
+        elif path=="/api/diagnostics/updates" and diagnostic_updates: self._json(diagnostic_updates())
+        elif path=="/api/diagnostics/connectivity" and diagnostic_connectivity: self._json(diagnostic_connectivity())
         else: self._json({"error":"Endpoint not found."},404)
     def do_POST(self):
         if self._origin() and self._origin() not in ALLOWED_ORIGINS:
