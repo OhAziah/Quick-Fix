@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Quick Fix — a personal IT support workbench by Charlie Tuttle.">
+  <title>Quick Fix | IT Workbench</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Quick Fix home">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M13 2h6l1.1 4.2a10 10 0 0 1 2.1 1.2l4.1-1.1 3 5.2-3 3a10 10 0 0 1 0 2.4l3 3-3 5.2-4.1-1.1a10 10 0 0 1-2.1 1.2L19 30h-6l-1.1-4.2a10 10 0 0 1-2.1-1.2l-4.1 1.1-3-5.2 3-3a10 10 0 0 1 0-2.4l-3-3 3-5.2 4.1 1.1a10 10 0 0 1 2.1-1.2L13 2Z" fill="currentColor"/><circle cx="16" cy="16" r="5" fill="#0b1020"/></svg></span>
+        <span><strong>Quick Fix</strong><small>IT WORKBENCH</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview</button>
+        <button class="nav-item" data-view="diagnostics"><span class="nav-icon">⌁</span> Diagnostics</button>
+        <button class="nav-item" data-view="network"><span class="nav-icon">⌘</span> Network tools</button>
+        <button class="nav-item" data-view="maintenance"><span class="nav-icon">⚙</span> Maintenance</button>
+        <button class="nav-item" data-view="processes"><span class="nav-icon">▤</span> Processes</button>
+        <button class="nav-item" data-view="activity"><span class="nav-icon">◷</span> Activity & reports</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="agent-card">
+          <div class="agent-card-top"><span class="status-dot" id="sidebarDot"></span><span id="sidebarAgentLabel">Demo mode</span></div>
+          <p id="sidebarAgentText">Connect the local Windows agent for live diagnostics.</p>
+          <button class="text-button" id="connectBtn">Connection settings <span>↗</span></button>
+        </div>
+        <div class="profile"><div class="avatar">CT</div><div><strong>Charlie Tuttle</strong><small>Personal toolkit</small></div><span class="profile-menu">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-sep">/</span><strong id="crumbTitle">Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="mode-pill" id="modePill"><span class="status-dot"></span> DEMO MODE</span>
+          <button class="icon-button" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">◐</button>
+          <button class="primary-button small" id="runQuickCheck"><span>▶</span> Run quick check</button>
+        </div>
+      </header>
+
+      <section class="page active" id="view-overview">
+        <div class="welcome-row">
+          <div><div class="eyebrow">PERSONAL IT SUPPORT TOOLKIT</div><h1>Your workbench<span class="accent">.</span></h1><p class="page-intro">Your everyday toolkit for diagnosing, maintaining and documenting Windows devices.</p></div>
+          <div class="date-chip"><span class="date-icon">◷</span><span><small>LOCAL WORKSPACE</small><strong id="todayDate">Ready when you are</strong></span></div>
+        </div>
+        <div class="notice demo-notice" id="demoNotice"><span class="notice-icon">ⓘ</span><div><strong>You’re viewing demo data</strong><p>Nothing here is being read from your PC yet. Start the optional local agent to enable real diagnostics. Demo results are always labelled.</p></div><button class="notice-action" id="noticeConnect">Set up agent ↗</button></div>
+        <div class="section-heading"><div><h2>System overview</h2><p>Live indicators when connected; illustrative sample values in demo mode.</p></div><span class="updated-label" id="lastUpdated">SAMPLE DATA</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>CPU usage</span><span class="stat-icon purple">⌁</span></div><div class="stat-value" id="cpuValue">24<span>%</span></div><div class="meter"><i id="cpuMeter" style="width:24%"></i></div><div class="stat-foot" id="cpuFoot">Sample reading</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Memory usage</span><span class="stat-icon blue">▦</span></div><div class="stat-value" id="ramValue">58<span>%</span></div><div class="meter"><i id="ramMeter" style="width:58%"></i></div><div class="stat-foot" id="ramFoot">Sample reading</div></article>
+          <article class="stat-card"><div class="stat-top"><span>System drive</span><span class="stat-icon green">▤</span></div><div class="stat-value" id="diskValue">41<span>%</span></div><div class="meter"><i id="diskMeter" style="width:41%"></i></div><div class="stat-foot" id="diskFoot">Sample capacity</div></article>
+          <article class="stat-card"><div class="stat-top"><span>Uptime</span><span class="stat-icon orange">◷</span></div><div class="stat-value compact" id="uptimeValue">3d 6h</div><div class="stat-foot" id="hostValue">Sample workstation</div></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel quick-actions-panel"><div class="panel-heading"><div><h2>Quick actions</h2><p>Jump straight into a common support task.</p></div><span class="panel-symbol">✳</span></div>
+            <div class="action-list">
+              <button class="action-row" data-action="system"><span class="action-icon violet">▦</span><span><strong>System information</strong><small>OS, hardware, memory and uptime</small></span><span class="action-arrow">↗</span></button>
+              <button class="action-row" data-action="network"><span class="action-icon cyan">⌘</span><span><strong>Network diagnostics</strong><small>Connectivity, gateway and DNS</small></span><span class="action-arrow">↗</span></button>
+              <button class="action-row" data-action="health"><span class="action-icon mint">♡</span><span><strong>System health report</strong><small>Gather a concise support snapshot</small></span><span class="action-arrow">↗</span></button>
+              <button class="action-row" data-action="processes"><span class="action-icon amber">▤</span><span><strong>Process overview</strong><small>Review top resource consumers</small></span><span class="action-arrow">↗</span></button>
+            </div>
+          </section>
+          <section class="panel health-panel"><div class="panel-heading"><div><h2>Health snapshot</h2><p>Quick signals to guide your next step.</p></div><span class="live-badge" id="healthBadge">DEMO</span></div>
+            <div class="health-line"><span class="health-check">✓</span><div><strong id="health1Title">Core services</strong><small id="health1Desc">Illustrative status only</small></div><span class="health-status neutral" id="health1Status">Sample</span></div>
+            <div class="health-line"><span class="health-check">✓</span><div><strong id="health2Title">Network connectivity</strong><small id="health2Desc">Illustrative status only</small></div><span class="health-status neutral" id="health2Status">Sample</span></div>
+            <div class="health-line"><span class="health-check">✓</span><div><strong id="health3Title">Storage capacity</strong><small id="health3Desc">Illustrative status only</small></div><span class="health-status neutral" id="health3Status">Sample</span></div>
+            <button class="panel-link" data-view="diagnostics">Open diagnostics <span>→</span></button>
+          </section>
+        </div>
+        <section class="panel recent-panel"><div class="panel-heading"><div><h2>Recent activity</h2><p>A local history of actions run from this dashboard.</p></div><button class="subtle-button" data-view="activity">View all →</button></div><div id="recentActivity" class="activity-list"><div class="empty-state small-empty"><span>◷</span><p>No actions yet. Run a check to get started.</p></div></div></section>
+      </section>
+
+      <section class="page" id="view-diagnostics">
+        <div class="page-title-row"><div><div class="eyebrow">INVESTIGATE</div><h1>Diagnostics<span class="accent">.</span></h1><p class="page-intro">Collect useful evidence before making changes to a device.</p></div><span class="section-count">04 TOOLS</span></div>
+        <div class="tool-grid">
+          <article class="tool-card"><div class="tool-card-icon violet">▦</div><span class="tool-tag">READ ONLY</span><h3>System information</h3><p>Windows version, device name, processor, memory, drives and uptime.</p><button class="secondary-button full" data-action="system">Run diagnostic <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon cyan">♡</div><span class="tool-tag">READ ONLY</span><h3>System health report</h3><p>Summarise resource usage and available storage in a report.</p><button class="secondary-button full" data-action="health">Generate report <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon mint">⌁</div><span class="tool-tag">READ ONLY</span><h3>Disk overview</h3><p>Review mounted drives and free space before troubleshooting.</p><button class="secondary-button full" data-action="disk">Inspect drives <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon amber">▤</div><span class="tool-tag">READ ONLY</span><h3>Top processes</h3><p>Review processes by CPU and memory usage. No process is stopped automatically.</p><button class="secondary-button full" data-action="processes">View processes <span>→</span></button></article>
+        </div>
+        <section class="panel output-panel"><div class="panel-heading"><div><h2>Diagnostic output</h2><p>Results appear here after a tool completes.</p></div><button class="subtle-button" id="copyOutput">Copy output</button></div><pre id="diagnosticOutput" class="output-box">Choose a diagnostic above to view results.</pre></section>
+      </section>
+
+      <section class="page" id="view-network">
+        <div class="page-title-row"><div><div class="eyebrow">CONNECTIVITY</div><h1>Network tools<span class="accent">.</span></h1><p class="page-intro">Check the basics and narrow down common connectivity problems.</p></div><span class="section-count">03 TOOLS</span></div>
+        <div class="tool-grid three">
+          <article class="tool-card"><div class="tool-card-icon cyan">⌘</div><span class="tool-tag">READ ONLY</span><h3>Connectivity check</h3><p>Check whether the local machine can reach known public endpoints.</p><button class="secondary-button full" data-action="network">Run connectivity check <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon violet">⌖</div><span class="tool-tag">READ ONLY</span><h3>IP configuration</h3><p>Inspect local addresses, gateways and DNS settings.</p><button class="secondary-button full" data-action="ip">Inspect IP settings <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon amber">↻</div><span class="tool-tag caution">CHANGES SETTINGS</span><h3>Flush DNS cache</h3><p>Clear the Windows DNS resolver cache. Usually safe, but may briefly affect name resolution.</p><button class="secondary-button full" data-action="flushdns">Flush DNS cache <span>→</span></button></article>
+        </div>
+        <section class="panel"><div class="panel-heading"><div><h2>Network results</h2><p>Diagnostics and command results.</p></div></div><pre id="networkOutput" class="output-box">No network checks have been run.</pre></section>
+      </section>
+
+      <section class="page" id="view-maintenance">
+        <div class="page-title-row"><div><div class="eyebrow">REPAIR & MAINTAIN</div><h1>Maintenance<span class="accent">.</span></h1><p class="page-intro">Guided maintenance actions with clear warnings and result reporting.</p></div><span class="section-count">04 TOOLS</span></div>
+        <div class="notice caution-notice"><span class="notice-icon">!</span><div><strong>Review before running repairs</strong><p>Repair commands may take several minutes and some require administrator privileges. Save your work first. The dashboard will never execute arbitrary commands from the browser.</p></div></div>
+        <div class="tool-grid">
+          <article class="tool-card"><div class="tool-card-icon violet">⌁</div><span class="tool-tag caution">ADMIN MAY BE REQUIRED</span><h3>System File Checker</h3><p>Run Windows SFC to scan protected system files and repair issues where possible.</p><button class="secondary-button full" data-action="sfc">Run SFC scan <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon cyan">◈</div><span class="tool-tag caution">ADMIN MAY BE REQUIRED</span><h3>DISM health restore</h3><p>Use DISM to check and repair the Windows component store.</p><button class="secondary-button full" data-action="dism">Run DISM restore <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon mint">⌁</div><span class="tool-tag caution">RESTARTS EXPLORER</span><h3>Restart File Explorer</h3><p>Refresh the Windows shell. Open File Explorer windows may close briefly.</p><button class="secondary-button full" data-action="explorer">Restart Explorer <span>→</span></button></article>
+          <article class="tool-card"><div class="tool-card-icon amber">▤</div><span class="tool-tag">GUIDED</span><h3>Temporary files</h3><p>Review safe cleanup guidance. The dashboard does not silently delete files.</p><button class="secondary-button full" data-action="temp">Open cleanup guide <span>→</span></button></article>
+        </div>
+        <section class="panel"><div class="panel-heading"><div><h2>Maintenance output</h2><p>Progress and final status for the selected task.</p></div></div><pre id="maintenanceOutput" class="output-box">No maintenance actions have been run.</pre></section>
+      </section>
+
+      <section class="page" id="view-processes">
+        <div class="page-title-row"><div><div class="eyebrow">RESOURCE USAGE</div><h1>Processes<span class="accent">.</span></h1><p class="page-intro">Spot resource-heavy applications before choosing a fix.</p></div><button class="secondary-button" data-action="processes">↻ Refresh list</button></div>
+        <section class="panel"><div class="panel-heading"><div><h2>Top processes</h2><p>Read-only view. Stopping processes is intentionally not available in this first release.</p></div><span class="live-badge" id="processMode">DEMO DATA</span></div><div class="table-wrap"><table><thead><tr><th>PROCESS</th><th>PID</th><th>CPU</th><th>MEMORY</th><th>STATUS</th></tr></thead><tbody id="processRows"><tr><td colspan="5" class="table-empty">Run a process check to load the table.</td></tr></tbody></table></div></section>
+      </section>
+
+      <section class="page" id="view-activity">
+        <div class="page-title-row"><div><div class="eyebrow">AUDIT TRAIL</div><h1>Activity & reports<span class="accent">.</span></h1><p class="page-intro">A local activity trail for checks and actions launched from this page.</p></div><button class="secondary-button" id="exportActivity">Export activity ↗</button></div>
+        <section class="panel"><div class="panel-heading"><div><h2>Activity history</h2><p>Stored in this browser only. It is not sent to a server.</p></div><button class="subtle-button danger-text" id="clearActivity">Clear history</button></div><div id="activityFull" class="activity-list"><div class="empty-state"><span>◷</span><h3>No activity recorded</h3><p>When you run a tool, the result and time will be recorded here.</p></div></div></section>
+      </section>
+
+      <footer class="footer"><span>QUICK FIX <span class="footer-dot">•</span> PERSONAL IT WORKBENCH</span><span>Designed & developed by Charlie Tuttle</span><span class="footer-version">v1.0.0 · GitHub Pages edition</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><div><div class="eyebrow">WORKSPACE SETTINGS</div><h2 id="modalTitle">Connect local agent</h2></div><button class="icon-button" id="closeModal" aria-label="Close">×</button></div>
+      <p class="modal-copy">The website is static. To run real Windows diagnostics, start the optional local agent on your PC. It listens only on your own computer and exposes a limited set of approved tools.</p>
+      <label class="field-label" for="agentUrl">Local agent address</label><input id="agentUrl" class="text-input" type="url" value="http://127.0.0.1:8765" spellcheck="false">
+      <div class="modal-actions"><button class="secondary-button" id="testAgent">Test connection</button><button class="primary-button" id="saveAgent">Save & connect</button></div>
+      <div class="connection-message" id="connectionMessage" role="status">Not connected. Dashboard remains in clearly labelled demo mode.</div>
+      <div class="setup-tip"><strong>Quick setup</strong><code>cd agent<br>python -m pip install -r requirements.txt<br>python quickfix_agent.py</code><p>For local use, open the dashboard from its GitHub Pages URL in the same browser. See README.md for origin allow-list setup and security notes.</p></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="confirmBackdrop" hidden>
+    <section class="modal confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <div class="modal-head"><div><div class="eyebrow">CONFIRM ACTION</div><h2 id="confirmTitle">Are you sure?</h2></div><button class="icon-button" id="closeConfirm" aria-label="Close">×</button></div>
+      <p id="confirmText" class="modal-copy">This action may change your system.</p>
+      <label class="confirm-check"><input type="checkbox" id="confirmCheckbox"> I understand and want to continue.</label>
+      <div class="modal-actions"><button class="secondary-button" id="cancelAction">Cancel</button><button class="primary-button danger-button" id="confirmAction" disabled>Confirm action</button></div>
+    </section>
+  </div>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
