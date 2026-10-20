@@ -118,6 +118,10 @@ quickfix-dashboard/
 
 ## Expanded workbench features
 
+- A Command library tab with searchable, copyable commands grouped by operating system (Windows and Linux) and nested category (Git, PowerShell, Networking, System, and Shell & files). Commands are reference snippets only; the dashboard does not execute them.
+- Theme studio is available from the three-dot menu beside the profile name, keeping the main navigation focused.
+- The demo-data notice is hidden whenever the local agent is connected; it remains visible in demo mode.
+
 - Live monitoring refreshes CPU, memory and primary-drive readings at a configurable 5, 10, 30 or 60 second interval while the dashboard remains open.
 - Theme studio presets: Midnight, Ocean, Violet, Emerald, Graphite and Light, plus a custom accent colour. Theme preferences are stored in the current browser only.
 - Read-only Windows diagnostics for recent critical/error events from System and Application logs, selected common service status, recent installed hotfixes and basic DNS/TCP reachability.
