@@ -32,7 +32,7 @@
           <p id="sidebarAgentText">Connect the local Windows agent for live diagnostics.</p>
           <button class="text-button" id="connectBtn">Connection settings <span>↗</span></button>
         </div>
-        <div class="profile"><div class="avatar">CT</div><div class="profile-identity"><strong>Charlie Tuttle</strong><small>Personal toolkit</small></div><button class="profile-menu" id="profileMenuButton" aria-label="Open profile menu" aria-haspopup="true" aria-expanded="false">•••</button><div class="profile-dropdown" id="profileDropdown" hidden><button type="button" id="openThemeStudio">◉ <span>Theme studio</span></button><button type="button" id="openCommandLibrary">⌘ <span>Command library</span></button></div></div>
+        <div class="profile"><div class="avatar">CT</div><div class="profile-identity"><strong>Charlie Tuttle</strong><small>Personal toolkit</small></div><button class="profile-menu" id="profileMenuButton" aria-label="Open profile menu" aria-haspopup="true" aria-expanded="false">•••</button><div class="profile-dropdown" id="profileDropdown" hidden><button type="button" id="openThemeStudio">◉ <span>Theme studio</span></button></div></div>
       </div>
     </aside>
 
@@ -53,7 +53,7 @@
           <div class="date-chip"><span class="date-icon">◷</span><span><small>LOCAL WORKSPACE</small><strong id="todayDate">Ready when you are</strong></span></div>
         </div>
         <div class="notice demo-notice" id="demoNotice"><span class="notice-icon">ⓘ</span><div><strong>You’re viewing demo data</strong><p>Nothing here is being read from your PC yet. Start the optional local agent to enable real diagnostics. Demo results are always labelled.</p></div><button class="notice-action" id="noticeConnect">Set up agent ↗</button></div>
-        <div class="section-heading"><div><h2>System overview</h2><p>Live indicators when connected; illustrative sample values in demo mode.</p></div><span class="updated-label" id="lastUpdated">SAMPLE DATA</span></div>
+        <div class="section-heading"><div><h2>System overview</h2><p>Live indicators when connected; illustrative sample values in demo mode.</p></div><div class="overview-controls"><label class="monitor-setting" for="refreshInterval">Refresh <select id="refreshInterval" class="text-input compact-input"><option value="5">5 sec</option><option value="10" selected>10 sec</option><option value="30">30 sec</option><option value="60">60 sec</option></select></label><span class="updated-label" id="lastUpdated">SAMPLE DATA</span></div></div>
         <div class="stats-grid">
           <article class="stat-card"><div class="stat-top"><span>CPU usage</span><span class="stat-icon purple">⌁</span></div><div class="stat-value" id="cpuValue">24<span>%</span></div><div class="meter"><i id="cpuMeter" style="width:24%"></i></div><div class="stat-foot" id="cpuFoot">Sample reading</div></article>
           <article class="stat-card"><div class="stat-top"><span>Memory usage</span><span class="stat-icon blue">▦</span></div><div class="stat-value" id="ramValue">58<span>%</span></div><div class="meter"><i id="ramMeter" style="width:58%"></i></div><div class="stat-foot" id="ramFoot">Sample reading</div></article>
