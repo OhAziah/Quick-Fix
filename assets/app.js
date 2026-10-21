@@ -3,7 +3,8 @@
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
   const state = { mode: "offline", agentUrl: "http://127.0.0.1:8765", activity: [], pendingAction: null, data: null };
-  const demo = { system: {}, network: {}, processes: [] };\n  const labels = {overview:"Overview",diagnostics:"Diagnostics",network:"Network tools",maintenance:"Maintenance",processes:"Processes","activity":"Activity & reports"};
+  const demo = { system: {}, network: {}, processes: [] };
+  const labels = {overview:"Overview",diagnostics:"Diagnostics",network:"Network tools",maintenance:"Maintenance",processes:"Processes","activity":"Activity & reports"};
   const descriptions = {
     system:"System information", health:"System health report", disk:"Disk overview", processes:"Top processes",
     network:"Network connectivity check", ip:"IP configuration", flushdns:"Flush DNS cache", sfc:"System File Checker (SFC)",
