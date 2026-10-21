@@ -15,7 +15,7 @@
     <aside class="sidebar" id="sidebar">
       <a class="brand" href="#" aria-label="Quick Fix home">
         <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M13 2h6l1.1 4.2a10 10 0 0 1 2.1 1.2l4.1-1.1 3 5.2-3 3a10 10 0 0 1 0 2.4l3 3-3 5.2-4.1-1.1a10 10 0 0 1-2.1 1.2L19 30h-6l-1.1-4.2a10 10 0 0 1-2.1-1.2l-4.1 1.1-3-5.2 3-3a10 10 0 0 1 0-2.4l-3-3 3-5.2 4.1 1.1a10 10 0 0 1 2.1-1.2L13 2Z" fill="currentColor"/><circle cx="16" cy="16" r="5" fill="#0b1020"/></svg></span>
-        <span><strong>Quick Fix</strong><small>Developed by Charlie</small></span>
+        <span><strong>Quick Fix</strong><small>IT Support Toolkit</small></span>
       </a>
       <div class="workspace-label">WORKSPACE</div>
       <nav class="nav">
@@ -43,13 +43,13 @@
         <div class="topbar-actions">
           <span class="mode-pill" id="modePill"><span class="status-dot"></span> AGENT DISCONNECTED</span>
           <button class="icon-button" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">◐</button>
-          <button class="primary-button small" id="runQuickCheck"><span>▶</span> Run quick check</button>
+          <button class="primary-button small" id="runQuickCheck"><span>▶</span> Run Quick Check</button>
         </div>
       </header>
 
       <section class="page active" id="view-overview">
         <div class="welcome-row">
-          <div><div class="eyebrow">PERSONAL IT SUPPORT TOOLKIT</div><h1>Your workbench<span class="accent">.</span></h1><p class="page-intro">Your everyday toolkit for diagnosing, maintaining and documenting Windows devices.</p></div>
+          <div><div class="eyebrow">PERSONAL IT SUPPORT TOOLKIT</div><h1>Your workbench<span class="accent">.</span></h1><p class="page-intro">Your everyday toolkit for diagnosing, maintaining and documenting devices.</p></div>
           <div class="date-chip"><span class="date-icon">◷</span><span><small>LOCAL WORKSPACE</small><strong id="todayDate">Ready when you are</strong></span></div>
         </div>
         <div class="notice demo-notice" id="demoNotice"><span class="notice-icon">ⓘ</span><div><strong>Local agent not connected</strong><p>No system readings are being shown. Connect the local Windows agent to use real diagnostics.</p></div><button class="notice-action" id="noticeConnect">Connect agent ↗</button></div>
@@ -122,14 +122,14 @@
         <section class="panel"><div class="panel-heading"><div><h2>Activity history</h2><p>Stored in this browser only. It is not sent to a server.</p></div><button class="subtle-button danger-text" id="clearActivity">Clear history</button></div><div id="activityFull" class="activity-list"><div class="empty-state"><span>◷</span><h3>No activity recorded</h3><p>When you run a tool, the result and time will be recorded here.</p></div></div></section>
       </section>
 
-      <footer class="footer"><span>QUICK FIX <span class="footer-dot"><span>Developed by Charlie Tuttle</span><span class="footer-version">v1.0.0 · GitHub Pages edition</span></footer>
+      <footer class="footer"><span>QUICK FIX <span class="footer-dot"><span>Developed by Charlie Tuttle</span>
     </main>
   </div>
 
   <div class="modal-backdrop" id="modalBackdrop" hidden>
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-head"><div><div class="eyebrow">WORKSPACE SETTINGS</div><h2 id="modalTitle">Connect local agent</h2></div><button class="icon-button" id="closeModal" aria-label="Close">×</button></div>
-      <p class="modal-copy">The website is static. To run real Windows diagnostics, start the optional local agent on your PC. It listens only on your own computer and exposes a limited set of approved tools.</p>
+      <p class="modal-copy">To run Windows diagnostics, start the local agent on your PC.</p>
       <label class="field-label" for="agentUrl">Local agent address</label><input id="agentUrl" class="text-input" type="url" value="http://127.0.0.1:8765" spellcheck="false">
       <div class="modal-actions"><button class="secondary-button" id="testAgent">Test connection</button><button class="primary-button" id="saveAgent">Save & connect</button></div>
       <div class="connection-message" id="connectionMessage" role="status">Not connected. Live diagnostics are unavailable until the local agent connects.</div>
