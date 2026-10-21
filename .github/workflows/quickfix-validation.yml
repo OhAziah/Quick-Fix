@@ -24,6 +24,7 @@ jobs:
         run: |
           node --check assets/app.js
           node --check assets/feature-pack.js
+          node --check assets/real-data-only.js
       - name: Check Python syntax
         run: |
           python -m py_compile agent/quickfix_agent.py agent/extended_diagnostics.py

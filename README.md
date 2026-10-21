@@ -2,9 +2,8 @@
 
 ## Important: what GitHub Pages can and cannot do
 
-GitHub Pages serves static HTML, CSS and JavaScript. It **cannot run Windows commands on your PC**. This project therefore has two modes:
+GitHub Pages serves static HTML, CSS and JavaScript. It **cannot run Windows commands on your PC**. This project has one operating model:
 
-- **Demo mode:** works as soon as the site is published. The sample readings are explicitly labelled; no pretend result is presented as a real diagnostic.
 - **Local agent mode:** an optional Python agent running on your Windows PC provides actual system/network/process data and a small allow-list of actions. The agent binds only to `127.0.0.1`; it is not a cloud backend and should not be exposed to the network.
 
 The agent is deliberately restricted. The browser cannot submit arbitrary shell commands. SFC and DISM require the agent to be started from an Administrator terminal, and the UI requires a separate confirmation before running any maintenance action.
@@ -18,7 +17,7 @@ The agent is deliberately restricted. The browser cannot submit arbitrary shell 
 - Maintenance: SFC, DISM, restart File Explorer and safe temporary-file guidance
 - Process table (read-only; no kill-process button)
 - Activity history stored in the browser, with JSON export
-- Explicit demo/live mode indicators and a local-agent connection test
+- Real-data-only mode: metrics and diagnostics stay unavailable until the local agent responds
 - Responsive layout for mobile and desktop
 
 Some features from the terminal baseline are intentionally not carried across as destructive one-click actions. Recycle Bin deletion, arbitrary shell commands, and password-gated debug command execution are excluded for safety. They can be redesigned later with safer workflows and auditability.
@@ -57,7 +56,7 @@ For SFC or DISM, start the terminal with **Run as administrator**. Do not run th
 
 ### Browser/local-agent notes
 
-Modern browsers may apply local-network access protections to a hosted page requesting `127.0.0.1`. If the browser blocks the connection, demo mode still works. Browser policies can change; this first release does not include a bundled desktop shell or a remote server.
+Modern browsers may apply local-network access protections to a hosted page requesting `127.0.0.1`. If the browser blocks the connection, live readings remain unavailable until the connection is allowed. Browser policies can change; this first release does not include a bundled desktop shell or a remote server.
 
 ## Security model
 
@@ -74,8 +73,8 @@ Modern browsers may apply local-network access protections to a hosted page requ
 ### Static site
 - [ ] Open `index.html` locally or publish it with GitHub Pages.
 - [ ] Navigate through every sidebar page.
-- [ ] Confirm demo labels are visible and sample data is not described as live.
-- [ ] Run demo actions; check output and activity history.
+- [ ] Confirm the dashboard shows unavailable readings while disconnected and real readings after the local agent connects.
+- [ ] Run diagnostics only while connected; verify failed agent requests never produce sample results.
 - [ ] Export activity as JSON and toggle light mode.
 - [ ] Test the mobile layout.
 
@@ -120,7 +119,7 @@ quickfix-dashboard/
 
 - A Command library tab with searchable, copyable commands grouped by operating system (Windows and Linux) and nested category (Git, PowerShell, Networking, System, and Shell & files). Commands are reference snippets only; the dashboard does not execute them.
 - Theme studio is available from the three-dot menu beside the profile name, keeping the main navigation focused.
-- The demo-data notice is hidden whenever the local agent is connected; it remains visible in demo mode.
+- A connection notice is shown while the agent is unavailable; fabricated demo readings are not used.
 
 - Live monitoring refreshes CPU, memory and primary-drive readings at a configurable 5, 10, 30 or 60 second interval while the dashboard remains open.
 - Theme studio presets: Midnight, Ocean, Violet, Emerald, Graphite and Light, plus a custom accent colour. Theme preferences are stored in the current browser only.
